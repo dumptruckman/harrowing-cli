@@ -8,7 +8,7 @@ enum class HarrowCard(val ability: Ability, val alignment: Alignment, val longNa
     KEEP(STR, NG, "The Keep"),
     BIG_SKY(STR, CG, "The Big Sky"),
     FORGE(STR, LN, "The Forge"),
-    BEAR(STR, TN, "The Bear"),
+    BEAR(STR, N, "The Bear"),
     UPRISING(STR, CN, "The Uprising"),
     FIEND(STR, LE, "The Fiend"),
     BEATING(STR, NE, "The Beating"),
@@ -18,7 +18,7 @@ enum class HarrowCard(val ability: Ability, val alignment: Alignment, val longNa
     CRICKET(DEX, NG, "The Cricket"),
     JUGGLER(DEX, CG, "The Juggler"),
     LOCKSMITH(DEX, LN, "The Locksmith"),
-    PEACOCK(DEX, TN, "The Peacock"),
+    PEACOCK(DEX, N, "The Peacock"),
     RABBIT_PRINCE(DEX, CN, "The Rabbit Prince"),
     AVALANCHE(DEX, LE, "The Avalanche"),
     CROWS(DEX, NE, "The Crows"),
@@ -28,7 +28,7 @@ enum class HarrowCard(val ability: Ability, val alignment: Alignment, val longNa
     SURVIVOR(CON, NG, "The Survivor"),
     DESERT(CON, CG, "The Desert"),
     BRASS_DWARF(CON, LN, "The Brass Dwarf"),
-    TEAMSTER(CON, TN, "The Teamster"),
+    TEAMSTER(CON, N, "The Teamster"),
     MOUNTAIN_MAN(CON, CN, "The Mountain Man"),
     TANGLED_BRIAR(CON, LE, "The Tangled Briar"),
     SICKNESS(CON, NE, "The Sickness"),
@@ -38,7 +38,7 @@ enum class HarrowCard(val ability: Ability, val alignment: Alignment, val longNa
     WANDERER(INT, NG, "The Wanderer"),
     JOKE(INT, CG, "The Joke"),
     INQUISITOR(INT, LN, "The Inquisitor"),
-    FOREIGN_TRADER(INT, TN, "The Foreign Trader"),
+    FOREIGN_TRADER(INT, N, "The Foreign Trader"),
     VISION(INT, CN, "The Vision"),
     RAKSHASA(INT, LE, "The Rakshasa"),
     IDIOT(INT, NE, "The Idiot"),
@@ -48,7 +48,7 @@ enum class HarrowCard(val ability: Ability, val alignment: Alignment, val longNa
     MIDWIFE(WIS, NG, "The Midwife"),
     PUBLICAN(WIS, CG, "The Publican"),
     QUEEN_MOTHER(WIS, LN, "The Queen Mother"),
-    OWL(WIS, TN, "The Owl"),
+    OWL(WIS, N, "The Owl"),
     CARNIVAL(WIS, CN, "The Carnival"),
     ECLIPSE(WIS, LE, "The Eclipse"),
     MUTE_HAG(WIS, NE, "The Mute Hag"),
@@ -58,11 +58,18 @@ enum class HarrowCard(val ability: Ability, val alignment: Alignment, val longNa
     THEATER(CHA, NG, "The Theater"),
     UNICORN(CHA, CG, "The Unicorn"),
     MARRIAGE(CHA, LN, "The Marriage"),
-    TWIN(CHA, TN, "The Twin"),
+    TWIN(CHA, N, "The Twin"),
     COURTESAN(CHA, CN, "The Courtesan"),
     TYRANT(CHA, LE, "The Tyrant"),
     BETRAYAL(CHA, NE, "The Betrayal"),
     LIAR(CHA, CE, "The Liar");
+
+    override fun toString(): String {
+        return longName
+    }
+
+    val displayName = "$longName (${ability.longName}, ${alignment.longName})"
+    val shortDisplayName = "$longName (${ability.name}, ${alignment.name})"
 
     companion object {
         private val cardMap = mapOf(*(Ability.values().map {

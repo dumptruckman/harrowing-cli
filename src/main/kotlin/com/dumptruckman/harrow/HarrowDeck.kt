@@ -2,16 +2,12 @@ package com.dumptruckman.harrow
 
 import java.util.Random
 
-class HarrowDeck {
-
-}
-
 enum class Alignment(val longName: String) {
     LG("Lawful Good"),
     NG("Neutral Good"),
     CG("Chaotic Good"),
     LN("Lawful Neutral"),
-    TN("Neutral"),
+    N("Neutral"),
     CN("Chaotic Neutral"),
     LE("Lawful Evil"),
     NE("Neutral Evil"),
@@ -56,4 +52,4 @@ enum class Ability(val longName: String) {
     }
 }
 
-fun ClosedRange<Int>.random() = Random().nextInt((endInclusive + 1) - start) +  start
+private fun ClosedRange<Int>.random() = Random().nextInt((endInclusive + 1) - start) +  start
